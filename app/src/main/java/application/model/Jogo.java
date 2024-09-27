@@ -17,13 +17,12 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "jogos")
-public class Jogo {
+public class Jogo{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(nullable = true)
     private String titulo;
-
 
     @ManyToOne
     @JoinColumn(name = "id_genero")
@@ -33,8 +32,7 @@ public class Jogo {
     @JoinTable(
         name = "jogos_possuem_plataformas",
         joinColumns = @JoinColumn(name = "id_jogos"),
-        inverseJoinColumns = @JoinColumn(name = "id_plataformas")
-    )
+        inverseJoinColumns = @JoinColumn(name = "id_plataformas"))
     private Set<Plataforma> plataformas = new HashSet<>();
 
     public long getId() {
