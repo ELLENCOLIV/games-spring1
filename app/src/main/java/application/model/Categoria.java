@@ -1,7 +1,9 @@
 package application.model;
-
+import java.lang.annotation.Inherited;
 import java.util.HashSet;
 import java.util.Set;
+
+import javax.annotation.processing.Generated;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,12 +13,13 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
+
 @Entity
 @Table(name = "categorias")
 public class Categoria {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     @Column(unique = true, nullable = false)
     private String nome;
 
@@ -26,8 +29,8 @@ public class Categoria {
     public long getId() {
         return id;
     }
-
-    public void setId(long id) {
+    
+    public void setId(long id){
         this.id = id;
     }
 
